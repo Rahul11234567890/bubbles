@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minecraft Page For Bubbles</title>
+
+  <style>
+    .highlight {
+      background-color: yellow;
+      animation: fade 2s forwards;
+    }
+
+    @keyframes fade {
+      from {
+        background-color: yellow;
+      }
+      to {
+        background-color: transparent;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <input type="text" id="searchBar" placeholder="Search About Minecraft....">
+    <button onclick="searchContent()">Search</button>
+  </div>
+
+  <!-- JavaScript (Embedded in HTML) -->
+  <script>
+    // Function for live search suggestions
+    function liveSuggestions() {
+      const query = document.getElementById("searchBar").value.toLowerCase();
+      const suggestions = document.getElementById("suggestions");
+      const elements = document.querySelectorAll("h1, p");
+
+      suggestions.innerHTML = ""; // Clear previous suggestions
+
+      elements.forEach(element => {
+        if (element.textContent.toLowerCase().includes(query) && query !== "") {
+          const suggestion = document.createElement("div");
+          suggestion.textContent = element.textContent.slice(0, 50) + "..."; // Preview the match
+          suggestion.classList.add("suggestion-item");
+          suggestion.onclick = () => {
+            element.scrollIntoView({ behavior: "smooth", block: "center" });
+            element.classList.add("highlight");
+          };
+          suggestions.appendChild(suggestion);
+        }
+      });
+
+      if (query === "") {
+        suggestions.innerHTML = ""; // Hide suggestions when input is empty
+      }
+    }
+
+    // Function for searching content and providing feedback
+    function searchContent() {
+      const query = document.getElementById("searchBar").value.toLowerCase();
+      const elements = document.querySelectorAll("h1, p");
+      let found = false;
+
+      elements.forEach(element => {
+        element.classList.remove("highlight"); // Remove old highlights
+        if (element.textContent.toLowerCase().includes(query)) {
+          element.scrollIntoView({ behavior: "smooth", block: "center" });
+          element.classList.add("highlight");
+          found = true;
+        }
+      });
+
+      const feedback = document.getElementById("feedback");
+      if (!found) {
+        feedback.textContent = "No results found.";
+        feedback.style.color = "red";
+      } else {
+        feedback.textContent = "";
+      }
+    }
+  </script>
+</body>
+</html>
+
+
+  <script>
+    function searchContent() {
+      const query = document.getElementById("searchBar").value.toLowerCase();
+      const elements = document.querySelectorAll("h1, p"); // Search in headers and paragraphs
+      let found = false;
+
+      elements.forEach(element => {
+        // Remove old highlights
+        element.classList.remove("highlight");
+
+        if (element.textContent.toLowerCase().includes(query)) {
+          element.scrollIntoView({ behavior: "smooth", block: "center" }); // Scroll to the element
+          element.classList.add("highlight"); // Highlight the element
+          found = true;
+        }
+      });
+
+      if (!found) {
+        alert("No matches found.");
+      }
+    }
+  </script>
+</body>
+</html>
+
+  <link rel="icon" href="download.jpg" type="image/x-icon">
+
+  <link href="https://fonts.googleapis.com/css2?family=Oxanium&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: 'Oxanium', sans-serif; /* Apply Oxanium font globally */
+    }
+
+
+    /* Header styling */
+    header {
+      text-align: center; /* Center the content in the header */
+      margin-bottom: 30px; /* Add some space below the header */
+    }
+
+
+    header p {
+      color: #ff0000; /* Tomato red color for the paragraph */
+      font-size: 20px; /* Set the font size for the paragraph */
+    }
+
+
+    .highlight {
+      color: #ff0505; /* Highlighted text color */
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="image1.jpg" alt="Image 1">
+    <p>This is a <span class="highlight">Minecraft Info Page</span> Made For My Bestie, Bubbles</p>
+  </header>
+
+
+  <main>
+    <div class="content">
+      <section class="text-section">
+        <h2>Why I Made This</h2>
+        <p>I made this because Bubbles said to make this website.</p>
+      </section>
+    </div>
+  </main>
+
+
+  <footer>
+    <p>MADE BY RAHUL GOPLANI AKA BUBBLES BESTIEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE .</p>
+  </footer>
+</body>
+</html>
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page with Table of Contents</title>
+  <style>
+    /* Smooth scroll effect */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Table of Contents Styling */
+    nav {
+      position: fixed; /* Keep TOC fixed */
+      bottom: 20px; /* Move TOC to the bottom of the page */
+      left: 20px; /* Move TOC to the left side */
+      padding: 10px;
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    nav a {
+      display: block;
+      margin-bottom: 10px;
+      text-decoration: none;
+      color: #000000;
+    }
+
+    nav a:hover {
+      color: #040682;
+    } 
+
+    section {
+      margin: 50px 0;
+      padding: 20px;
+      border: 1px solid #ddd;
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+  <!-- Table of Contents -->
+  <nav>
+    <h3>Table of Contents</h3>
+    <a href="#section1">  Mobs</a>
+    <a href="#section2">Section 2: Features</a>
+    <a href="#section3">Section 3: Pricing</a>
+    <a href="#section4">Section 4: Contact</a>
+  </nav>
+
+  <!-- Content Sections -->
+  <section id="section1">
+    <h2>Mobs</h2>
+    <p>1. **Axolotl**</p> <p>Type: Passive</p> <p>Description: Axolotls are aquatic creatures found in cave biomes. They can fight hostile mobs, like Drowned, and regenerate health. Axolotls are useful for underwater exploration and can be caught in a bucket for transport. They can be bred using tropical fish.</p> <p>:</p> <p>2. **Allay**</p> <p>Type: Passive</p> <p>Description: A flying mob that picks up dropped items and delivers them to players. It helps with resource gathering by collecting items like wood, stone, or ores that the player throws at it. They are ideal for organizing or clearing large amounts of dropped items.</p> <p>:</p> <p>3. **Bee**</p> <p>Type: Passive</p> <p>Description: Bees pollinate flowers, creating a positive effect on crop growth nearby. They are vital for beekeeping and can produce honey. Bees become aggressive if provoked and can sting players. They can also be bred using flowers.</p> <p>:</p> <p>4. **Bat**</p> <p>Type: Passive</p> <p>Description: Bats are harmless, flying mobs found in dark cave systems. They don’t drop any loot and are primarily there for ambiance and to add realism to caves and other dark areas in Minecraft.</p> <p>:</p> <p>5. **Blaze**</p> <p>Type: Hostile</p> <p>Description: Blazes are found in Nether fortresses. They shoot fireballs and drop Blaze Powder or Blaze Rods, which are essential for brewing potions or crafting Eyes of Ender. They can be dangerous in large numbers.</p> <p>:</p> <p>6. **Cat**</p> <p>Type: Passive</p> <p>Description: Cats are pets that spawn in villages and can be tamed with raw fish. Cats scare away Creepers and are a favorite for players who enjoy having pets. They come in different breeds and colors.</p> <p>:</p> <p>7. **Chicken**</p> <p>Type: Passive</p> <p>Description: Chickens drop feathers and raw chicken. They lay eggs, which can be thrown to spawn chicks. Players can breed them using seeds, making them an essential food source for new players.</p> <p>:</p> <p>8. **Cod**</p> <p>Type: Passive</p> <p>Description: Cod are fish found swimming in oceans and rivers. They drop raw cod when killed, which can be cooked for food. They’re often found in large schools and are an easy resource for players near water.</p> <p>:</p> <p>9. **Cow**</p> <p>Type: Passive</p> <p>Description: Cows drop leather and raw beef when killed. They can also be milked for a bucket of milk, which removes negative effects like poison. Cows are essential for leather armor, books, and crafting.</p> <p>:</p> <p>10. **Creeper**</p> <p>Type: Hostile</p> <p>Description: Creepers are infamous for their ability to silently sneak up and explode, causing damage to players and the environment. They drop gunpowder, which can be used to craft TNT and fireworks.</p> <p>:</p> <p>11. **Dolphin**</p> <p>Type: Passive</p> <p>Description: Dolphins are aquatic creatures that swim in the oceans. They can guide players to nearby underwater structures, such as shipwrecks. They can also help increase movement speed in water.</p> <p>:</p> <p>12. **Donkey**</p> <p>Type: Passive</p> <p>Description: Donkeys are passive mobs that can be ridden and used as pack animals. Players can attach chests to donkeys, allowing them to carry additional inventory. They can be bred with horses to create mules.</p> <p>:</p> <p>13. **Drowned**</p> <p>Type: Hostile</p> <p>Description: Drowned are hostile mobs that spawn underwater, especially in oceans. They drop tridents, experience orbs, and can even be converted from Zombies when they drown in water. Drowned are often found near oceans or in underwater ruins.</p> <p>:</p> <p>14. **Ender Dragon**</p> <p>Type: Hostile</p> <p>Description: The Ender Dragon is the final boss of the game, located in The End. It’s a powerful flying mob that spawns in the End and has high health. Players must destroy the Ender Crystals on obsidian pillars to weaken the dragon and defeat it.</p> <p>:</p> <p>15. **Enderman**</p> <p>Type: Hostile</p> <p>Description: Endermen are tall, slender creatures known for their ability to teleport and pick up blocks. They are passive until provoked. When provoked, they can deal significant damage and are found both in The End and in the Overworld.</p> <p>:</p> <p>16. **Endermite**</p> <p>Type: Hostile</p> <p>Description: Small, hostile mobs that spawn when Ender Pearls are thrown. They can teleport and are typically found in areas where Endermen are active. Endermites drop Ender Pearls when killed.</p> <p>:</p> <p>17. **Evoker**</p> <p>Type: Hostile</p> <p>Description: Evokers are hostile mobs found in Woodland Mansions and Illager Outposts. They can summon Vexes and cast powerful magic, creating fangs that damage players. They drop totems of undying when killed.</p> <p>:</p><p>18. **Fox**</p> <p>Type: Passive</p> <p>Description: Foxes are small, fast mobs found in taiga and snowy biomes. They can be tamed with sweet berries and are known for their ability to jump over fences. Foxes sometimes pick up items and carry them in their mouths.</p> <p>:</p> <p>19. **Ghast**</p> <p>Type: Hostile</p> <p>Description: Ghasts are large, floating mobs found in the Nether. They shoot explosive fireballs at players from a distance and are known for their high-pitched cries. Defeating them yields Ghast Tears, which are used in potion-making.</p> <p>:</p> <p>20. **Giant**</p> <p>Type: Hostile</p> <p>Description: Giants are rare, large mobs that do not spawn naturally in the game. They are similar to Zombies in behavior but much larger in size and health. Giants can be spawned with cheats or commands and drop experience orbs when killed.</p> <p>:</p> <p>21. **Glow Squid**</p> <p>Type: Passive</p> <p>Description: Glow Squids are aquatic creatures found in deep underwater caves. They emit a faint glowing light, adding ambiance to underwater environments. Glow Squids drop glow ink sacs when killed, which can be used to craft glowing text or signs.</p> <p>:</p> <p>22. **Goat**</p> <p>Type: Passive</p> <p>Description: Goats are found in mountainous biomes and are known for their ability to jump high. They can be bred with wheat and will occasionally ram into players or other mobs, causing damage. Goats drop goat horns when killed, which can be used for sound effects or crafting.</p> <p>:</p> <p>23. **Guardian**</p> <p>Type: Hostile</p> <p>Description: Guardians are hostile mobs found in Ocean Monuments. They attack with lasers and are formidable underwater foes. Defeating them rewards players with Prismarine Crystals, which can be used for crafting various blocks.</p> <p>:</p> <p>24. **Horse**</p> <p>Type: Passive</p> <p>Description: Horses are useful for fast travel and can be ridden once tamed. Players can breed them with golden apples or carrots. They come in different colors and variants, and can be equipped with armor and saddles for added utility.</p> <p>:</p> <p>25. **Husk**</p> <p>Type: Hostile</p> <p>Description: Husk is a variant of the Zombie that spawns in desert biomes. Unlike regular Zombies, Husk does not burn in the sunlight and has a different appearance. They drop sand and have a slight hunger-inducing effect on players when they hit them.</p> <p>:</p> <p>26. **Illusioner**</p> <p>Type: Hostile</p> <p>Description: The Illusioner is a rare Illager variant that is capable of casting illusions to confuse players. It can create copies of itself, making it harder to defeat. Illusioners drop totems of undying when killed.</p> <p>:</p> <p>27. **Iron Golem**</p> <p>Type: Passive</p> <p>Description: Iron Golems are large, powerful mobs that are built by players using iron blocks and a carved pumpkin or jack-o'-lantern. They protect villagers from hostile mobs like Zombies and are a good source of iron when killed.</p> <p>:</p> <p>28. **Llama**</p> <p>Type: Passive</p> <p>Description: Llamas are passive mobs found in savanna and mountain biomes. They can be ridden and equipped with a chest for carrying items. They can also spit at hostile mobs when provoked, and they drop llama wool when sheared.</p> <p>:</p> <p>29. **Magma Cube**</p> <p>Type: Hostile</p> <p>Description: Magma Cubes are hostile mobs found in the Nether. They split into smaller cubes when killed, making them tricky to defeat in large numbers. They drop magma cream, which can be used to craft fire resistance potions.</p> <p>:</p> <p>30. **Mooshroom**</p> <p>Type: Passive</p> <p>Description: Mooshrooms are a variant of cows that spawn in Mushroom Islands. They are covered in mushrooms and can be milked to produce mushroom stew. Mooshrooms can be sheared to drop mushrooms, and they can be bred with wheat.</p> <p>:</p> <p>31. **Mule**</p> <p>Type: Passive</p> <p>Description: Mules are hybrid creatures bred from donkeys and horses. They inherit the speed of horses and the carrying ability of donkeys. Mules cannot be ridden without a saddle, and they can be used for transporting items with chests.</p> <p>:</p> <p>32. **Ocelot**</p> <p>Type: Passive</p> <p>Description: Ocelots are wild cats found in jungle biomes. They can be tamed using raw fish, and once tamed, they become cats that can scare away Creepers. Ocelots are also known for their ability to navigate dense jungle terrain.</p> <p>:</p> <p>33. **Panda**</p> <p>Type: Passive</p> <p>Description: Pandas are found in jungle biomes. They come in several variants, including playful, lazy, and worried pandas. Pandas can be bred using bamboo and are a fun addition to the game due to their different behaviors and emotions.</p> <p>:</p> <p>34. **Parrot**</p> <p>Type: Passive</p> <p>Description: Parrots are colorful birds found in jungle biomes. They can be tamed with seeds and are able to mimic the sounds of hostile mobs, serving as an early warning system. Parrots can also sit on players’ shoulders.</p> <p>:</p> <p>35. **Phantom**</p> <p>Type: Hostile</p> <p>Description: Phantoms are hostile flying mobs that spawn when a player hasn’t slept for three or more in-game days. They attack players at night and drop phantom membranes, which are used for repairing Elytras.</p> <p>:</p> <p>36. **Pig**</p> <p>Type: Passive</p> <p>Description: Pigs are passive mobs that drop pork when killed. They can be ridden with a saddle, and they will follow a carrot on a stick. Pigs are also used in farming and can be bred using carrots, potatoes, or beetroots.</p> <p>:</p> <p>37. **Pillager**</p> <p>Type: Hostile</p> <p>Description: Pillagers are hostile mobs that spawn in raids. They wield crossbows and can be found in outposts or as part of a raid on villages. They drop crossbows and can lead to large-scale village raids if players don’t defend the village.</p> <p>:</p> <p>38. **Polar Bear**</p> <p>Type: Passive</p> <p>Description: Polar Bears are found in icy biomes and are peaceful unless provoked. They are larger than regular bears and can be dangerous if their cubs are threatened. They drop raw fish when killed and can be bred with fish.</p> <p>:</p> <p>39. **Rabbit**</p> <p>Type: Passive</p> <p>Description: Rabbits are small, fast mobs found in various biomes. They can be bred using carrots or dandelions. Rabbits drop rabbit hide and rabbit meat when killed. They also come in different breeds and colors.</p> <p>:</p> <p>40. **Ravager**</p> <p>Type: Hostile</p> <p>Description: Ravagers are large, hostile mobs that appear during raids. They are tough to defeat and deal significant damage. Players can ride them with a saddle, though it’s typically not recommended due to their aggressive nature.</p> <p>:</p> <p>41. **Salmon**</p> <p>Type: Passive</p> <p>Description: Salmon are fish that spawn in rivers and oceans. They drop raw salmon when killed and are an easy food source for players who enjoy fishing. They can also be found in large schools in the wild.</p> <p>:</p> <p>42. **Sheep**</p> <p>Type: Passive</p> <p>Description: Sheep are passive mobs that drop wool when sheared, which can be dyed in various colors. They also drop mutton when killed. Sheep are typically used for wool farming and can be bred with wheat.</p> <p>:</p> <p>43. **Shulker**</p> <p>Type: Hostile</p> <p>Description: Shulkers are hostile mobs found in End Cities. They shoot projectiles that cause players to levitate, making it harder to dodge attacks. Shulkers drop Shulker Shells, which are used in crafting Shulker Boxes for storage.</p> <p>:</p> <p>44. **Silverfish**</p> <p>Type: Hostile</p> <p>Description: Silverfish are small, fast mobs that spawn in strongholds and other hidden places in the world. They are often encountered when breaking blocks near strongholds, and they can quickly overwhelm players in tight spaces.</p> <p>:</p> <p>45. **Skeleton**</p> <p>Type: Hostile</p> <p>Description: Skeletons are ranged mobs that shoot arrows at players. They spawn in most overworld biomes and can be equipped with different types of bows and armor. They drop bones, arrows, and sometimes enchanted bows.</p> <p>:</p> <p>46. **Slime**</p> <p>Type: Hostile</p> <p>Description: Slimes are bouncy, hostile mobs that spawn in swamp biomes or slime chunks. They come in multiple sizes, with the largest dropping slimeballs. Slimeballs are used for crafting items like leads and sticky pistons.</p> <p>:</p> <p>47. **Snow Golem**</p> <p>Type: Passive</p> <p>Description: Snow Golems are created by placing snow blocks and a pumpkin or jack-o’-lantern. They shoot snowballs at hostile mobs and are often used for defense. However, they can be easily destroyed in biomes with heat.</p> <p>:</p> <p>48. **Spider**</p> <p>Type: Hostile</p> <p>Description: Spiders are common hostile mobs that spawn at night. They drop string and spider eyes when killed. Spiders can climb walls and are quick and agile, making them difficult to avoid in tight spaces.</p> <p>:</p> <p>49. **Squid**</p> <p>Type: Passive</p> <p>Description: Squids are aquatic creatures found in oceans, lakes, and rivers. They drop ink sacs when killed, which are used to create dyes for crafting. They add life to the water but are otherwise harmless.</p> <p>:</p> <p>50. **Stray**</p> <p>Type: Hostile</p> <p>Description: Strays are a variant of skeletons that spawn in snowy biomes. They shoot tipped arrows that inflict slowness on players, making them more dangerous than regular skeletons. They drop arrows of slowness.</p> <p>:</p> <p>51. **Strider**</p> <p>Type: Passive</p> <p>Description: Striders are passive mobs found in the Nether. They can walk on lava and are often used by players to travel across lava lakes. They can be saddled and ridden, and they move much slower in the cold biomes.</p> <p>:</p> <p>52. **Tropical Fish**</p> <p>Type: Passive</p> <p>Description: Tropical Fish are colorful fish found in oceans. They come in many varieties and can be caught using a bucket. They are often used for breeding Axolotls and can also be used as food or decorations.</p> <p>:</p> <p>53. **Turtle**</p> <p>Type: Passive</p> <p>Description: Turtles are passive mobs that spawn on beaches. They can be bred with seagrass, and they lay eggs that hatch into baby turtles. Turtle shells can be crafted into a helmet that gives the player water breathing effects.</p> <p>:</p> <p>54. **Vex**</p> <p>Type: Hostile</p> <p>Description: Vexes are small, flying hostile mobs summoned by Evokers. They can pass through blocks and are highly aggressive, dealing damage to players on sight. They drop experience orbs when killed.</p> <p>:</p> <p>55. **Villager**</p> <p>Type: Passive</p> <p>Description: Villagers are NPCs found in villages, and they offer trades for resources. They come in different professions and can be used by players to acquire various items in exchange for emeralds. Villagers can be bred under specific conditions.</p> <p>:</p> <p>56. **Witch**</p> <p>Type: Hostile</p> <p>Description: Witches are hostile mobs that throw harmful potions at players. They drop various ingredients used in potion brewing when killed, including glass bottles and sugar. Witches spawn in dark areas like swamps and are often found near villages.</p> <p>:</p> <p>57. **Wither**</p> <p>Type: Hostile</p> <p>Description: The Wither is a boss mob that can be summoned by players using soul sand and Wither Skeleton skulls. It shoots explosive skulls and creates a deadly explosion upon death. The Wither drops the Nether Star when defeated, which is used for crafting beacons.</p> <p>:</p> <p>58. **Wither Skeleton**</p> <p>Type: Hostile</p> <p>Description: Wither Skeletons are found in Nether fortresses. They wield swords and have a chance to inflict the Wither effect on players. They drop Wither Skeleton skulls, which are used to summon the Wither boss.</p> <p>:</p> <p>59. **Wolf**</p> <p>Type: Passive</p> <p>Description: Wolves are neutral mobs that can be tamed using bones. Once tamed, they become loyal dogs that follow the player and attack hostile mobs. Wolves drop bones and meat when killed.</p> <p>:</p> <p>60. **Zombified Piglin**</p> <p>Type: Hostile</p> <p>Description: Zombified Piglins are neutral mobs found in the Nether, but they become hostile when provoked. They drop gold nuggets and are a primary source of gold in the game. They are common around Nether fortresses and bastions.</p> <p>:</p> <p>61. **Zombie**</p> <p>Type: Hostile</p> <p>Description: Zombies are basic hostile mobs that spawn in dark areas. They drop experience orbs and can convert villagers into Zombies. Zombies have several variants, including Baby Zombies, Drowned, and Husks.</p> <p>:</p><p>62. **Zombie Villager**</p> <p>Type: Hostile</p> <p>Description: Zombie Villagers are villagers that have been turned into Zombies by being attacked by a Zombie. They can be cured using a splash potion of Weakness and a golden apple, turning them back into Villagers. They spawn during the night or during a Zombie raid.</p> <p>:</p> <p>63. **Zombified Piglin**</p> <p>Type: Hostile</p> <p>Description: Zombified Piglins are neutral mobs found in the Nether, but they become hostile when provoked. They drop gold nuggets and are a primary source of gold in the game. They are common around Nether fortresses and bastions.</p> <p>:</p><p>64. **Ender Dragon**</p> <p>Type: Boss</p> <p>Description: The Ender Dragon is the final boss of Minecraft and is found in the End dimension. Defeating it involves destroying the Ender Crystals on top of obsidian pillars to prevent the dragon from healing, then attacking the dragon directly. It drops a large amount of experience and is part of the game's main progression.</p> <p>:</p> <p>65. **Wither**</p> <p>Type: Boss</p> <p>Description: The Wither is a powerful boss mob created by the player using soul sand and wither skeleton skulls. Upon spawning, it has a powerful ranged attack and can inflict the Wither effect, causing damage over time. Defeating the Wither drops a nether star, which is used to craft a beacon.</p> <p>:</p> <p>66. **Warden**</p> <p>Type: Hostile</p> <p>Description: The Warden is a fearsome mob found in the Deep Dark biome. It is blind, detecting players through vibrations and sounds. It deals massive damage and has high health, making it extremely dangerous. It’s meant to be avoided rather than fought directly.</p> <p>:</p> <p>67. **Allay**</p> <p>Type: Passive</p> <p>Description: The Allay is a helpful passive mob that can collect items for players. When given an item, it will gather similar items within a certain range and bring them to the player. Allays can be found in the world and can be trapped in cages.</p> <p>:</p> <p>68. **Axolotl**</p> <p>Type: Passive</p> <p>Description: Axolotls are friendly aquatic mobs that can be found in underground water bodies, specifically in the lush caves biome. They help players by attacking hostile aquatic mobs. When killed, they drop an axolotl spawn egg.</p> <p>:</p> <p>69. **Bee**</p> <p>Type: Passive</p> <p>Description: Bees are passive flying mobs that can be found near flowers and can pollinate them. They produce honey when in close proximity to a hive or nest. Bees can become aggressive if provoked, but they generally help with crop growth by spreading pollen.</p> <p>:</p> <p>70. **Blaze**</p> <p>Type: Hostile</p> <p>Description: Blazes are hostile mobs found in Nether fortresses. They shoot fireballs at players and deal fire damage. They are important for crafting Blaze Powder, which is used in brewing and activating the End portal.</p> <p>:</p><p>71. **Cat**</p> <p>Type: Passive</p> <p>Description: Cats are domesticated mobs that can be tamed using raw fish. Once tamed, they follow the player around and can be used to scare away creepers. Cats come in a variety of colors and patterns.</p> <p>:</p> <p>72. **Cave Spider**</p> <p>Type: Hostile</p> <p>Description: Cave Spiders are smaller, faster versions of regular spiders. They are found in caves, particularly in abandoned mineshafts. They can poison the player with their bite, which makes them a dangerous threat.</p> <p>:</p> <p>73. **Chicken**</p> <p>Type: Passive</p> <p>Description: Chickens are common passive mobs that lay eggs, which can be used in crafting. They drop raw chicken meat when killed, and they can also be bred using seeds. Chickens are used for farming and cooking.</p> <p>:</p> <p>74. **Cod**</p> <p>Type: Passive</p> <p>Description: Cod are passive aquatic mobs found in oceans. They can be caught with a fishing rod and cooked for food. They are one of the more common fish found in Minecraft’s waters.</p> <p>:</p> <p>75. **Cow**</p> <p>Type: Passive</p> <p>Description: Cows are passive mobs found in plains and forest biomes. They drop leather and raw beef when killed. Cows can be milked for milk buckets, which are useful in crafting recipes.</p> <p>:</p> <p>76. **Creeper**</p> <p>Type: Hostile</p> <p>Description: Creepers are infamous hostile mobs that silently approach the player and explode when they get too close. They drop gunpowder when killed, which can be used for crafting TNT.</p> <p>:</p> <p>77. **Dolphin**</p> <p>Type: Passive</p> <p>Description: Dolphins are aquatic mobs that can be found in oceans. They can be tamed with fish, and they help players swim faster when nearby. Dolphins also lead players to shipwrecks and underwater ruins.</p> <p>:</p> <p>78. **Donkey**</p> <p>Type: Passive</p> <p>Description: Donkeys are rideable mobs that can be found in plains and savanna biomes. They can be saddled and used as transport. Donkeys can also carry chests when equipped with a chest.</p> <p>:</p> <p>79. **Drowned**</p> <p>Type: Hostile</p> <p>Description: Drowned are hostile mobs that spawn in water or when a zombie drowns. They are the underwater version of zombies and can wield tridents. Drowned drop tridents and other loot when killed.</p> <p>:</p> <p>80. **Elder Guardian**</p> <p>Type: Boss</p> <p>Description: Elder Guardians are powerful variants of the Guardian mob found in ocean monuments. They have stronger attacks and can inflict the Mining Fatigue status effect, making mining difficult in the monument area.</p> <p>:</p><p>81. **Enderman**</p> <p>Type: Hostile</p> <p>Description: Endermen are tall, black mobs with glowing purple eyes. They are neutral until provoked. When provoked, they become hostile and teleport around, making them difficult to fight. They drop Ender Pearls, which are useful for teleporting or crafting Eye of Ender.</p> <p>:</p> <p>82. **Endermite**</p> <p>Type: Hostile</p> <p>Description: Endermites are small hostile mobs that spawn when an Ender Pearl is thrown. They are weak but can swarm the player. They drop Ender Pearls upon death in rare cases.</p> <p>:</p> <p>83. **Evoker**</p> <p>Type: Hostile</p> <p>Description: Evokers are hostile mobs found in Woodland Mansions or during raids. They can summon vexes and cast powerful spells to attack the player. When killed, they drop an Emerald and a Totem of Undying.</p> <p>:</p> <p>84. **Fox**</p> <p>Type: Passive</p> <p>Description: Foxes are passive mobs found in taiga biomes. They are fast and can be tamed using sweet berries. Foxes drop fox fur when killed, which can be used to craft a fox hat.</p> <p>:</p> <p>85. **Frog**</p> <p>Type: Passive</p> <p>Description: Frogs are passive mobs that spawn in swamps. They have different variants depending on the biome, and they can be bred using slimeballs. Frogs drop frog legs, which can be eaten for food.</p> <p>:</p> <p>86. **Ghast**</p> <p>Type: Hostile</p> <p>Description: Ghasts are large, ghost-like mobs found in the Nether. They float in the air and shoot explosive fireballs at players. They drop Ghast Tears when killed, which are used in potion-making.</p> <p>:</p> <p>87. **Giant**</p> <p>Type: Hostile</p> <p>Description: Giants are large hostile mobs that resemble a giant zombie. They are not naturally generated in the world, but they can be spawned through commands. Giants drop rare loot and can be difficult to defeat due to their size.</p> <p>:</p> <p>88. **Guardian**</p> <p>Type: Hostile</p> <p>Description: Guardians are hostile aquatic mobs found in ocean monuments. They have a long-range laser attack that can deal damage, and they drop prismarine shards and crystals when killed.</p> <p>:</p> <p>89. **Horse**</p> <p>Type: Passive</p> <p>Description: Horses are rideable mobs found in plains and savanna biomes. They can be tamed and ridden, and players can use saddles to control them. Horses can also be equipped with armor.</p> <p>:</p> <p>90. **Husk**</p> <p>Type: Hostile</p> <p>Description: Husk is a variant of the zombie that spawns in desert biomes. They are similar to zombies but don’t burn in the sunlight and can give players Hunger status effects when they attack.</p> <p>:</p>
+  </section>
+
+  <section id="section2">
+    <h2>Features</h2>
+    <p>This section describes the features of the product.</p>
+  </section>
+
+  <section id="section3">
+    <h2>Pricing</h2>
+    <p>This section provides pricing information.</p>
+  </section>
+
+  <section id="section4">
+    <h2>Contact</h2>
+    <p>This section contains contact information.</p>
+  </section>
+  
+</body>
+</html>
+
